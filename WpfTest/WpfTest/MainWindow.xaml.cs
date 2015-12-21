@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO.Compression;
+using System.IO;
 
 namespace WpfTest
 {
@@ -25,6 +27,17 @@ namespace WpfTest
         public MainWindow()
         {
             InitializeComponent();
+
+            String path = @"C:\Users\WWD\Desktop\wpfTestFile";
+            DirectoryInfo folder = new DirectoryInfo(path);
+
+            foreach (FileInfo file in folder.GetFiles("*.xlsx"))
+            {
+                // Console.WriteLine(file.FullName);
+              //  textBox.Text = file.Name;
+            }
+
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -39,5 +52,7 @@ namespace WpfTest
             }
 
         }
+
+        
     }
 }
